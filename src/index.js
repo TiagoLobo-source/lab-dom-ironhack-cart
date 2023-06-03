@@ -2,35 +2,34 @@
 
 // ITERATION 1
 function updateSubtotal(product) {
-  const priceElm = product.querySelector('.price span').innerText
-  const quantityElm = product.querySelector('.quantity input').value
-const subtotal = Number(priceElm) * Number(quantityElm)
+  const priceElm = product.querySelector(".price span").innerText;
+  const quantityElm = product.querySelector(".quantity input").value;
+  const subtotal = Number(priceElm) * Number(quantityElm);
 
-const subtotalElm = product.querySelector('.subtotal span')
+  const subtotalElm = product.querySelector(".subtotal span");
 
-subtotalElm.innerText = subtotal
-return subtotal
+  subtotalElm.innerText = subtotal;
+  return subtotal;
 }
 
 function calculateAll() {
-// ITERATION 2
-const allProducts = document.getElementsByClassName('product')
-const productsCopy = [...allProducts]
-let total = 0
-productsCopy.forEach(product => total += updateSubtotal(product))
+  // ITERATION 2
+  const allProducts = document.getElementsByClassName("product");
+  const productsCopy = [...allProducts];
+  let total = 0;
+  productsCopy.forEach((product) => (total += updateSubtotal(product)));
 
-// ITERATION 3
-const totalElm = document.querySelector('#total-value span')
-totalElm.innerText = total
+  // ITERATION 3
+  const totalElm = document.querySelector("#total-value span");
+  totalElm.innerText = total;
 }
 
 //// ITERATION 4
 function removeProduct(button) {
   const row = button.parentNode.parentNode;
   row.remove();
+  calculateAll();
 }
-
-
 
 //ITERATION 5
 function createProduct() {
